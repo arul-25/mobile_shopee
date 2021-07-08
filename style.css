@@ -95,4 +95,10 @@ button:focus {
   padding: 0 1rem;
 }
 
+/* Special Price Section */
+#special-price .grid .grid-item {
+  margin-right: 1.2rem;
+  margin-top: 1rem;
+}
+
 /*# sourceMappingURL=style.css.map */
