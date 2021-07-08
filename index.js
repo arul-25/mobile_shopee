@@ -54,4 +54,19 @@ $(document).ready(function() {
         }
     });
 
+    // Blogs Owl Carousel
+    $("#blogs .owl-carousel").owlCarousel({
+        loop: true,
+        nav : false,
+        dots : false,
+        responsive : {
+            0 : {
+                items : 1
+            },
+            600 : {
+                items : 3
+            }
+        }
+    });
+
 })
