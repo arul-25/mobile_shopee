@@ -10,19 +10,15 @@ include("Template/_top-sale.php");
 
 /* Special Price */
 include("Template/_special-price.php");
+
+/* Banner Adds */
+include("Template/_banner-adds.php");
 ?>
 
 
 
 
-<!-- Banner Ads -->
-<section id="banner_adds">
-  <div class="container py-5 text-center">
-    <img src="./assets/banner1-cr-500x150.jpg" class="img-fluid" alt="">
-    <img src="./assets/banner2-cr-500x150.jpg" class="img-fluid" alt="">
-  </div>
-</section>
-<!-- End Banner Ads -->
+
 
 <!-- New Phones -->
 <section id="new-phones">
