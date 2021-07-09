@@ -39,7 +39,7 @@ $(document).ready(function() {
     // New Phones Owl Carouesel
     $("#new-phones .owl-carousel").owlCarousel({
         loop: true,
-        nav : false,
+        nav : true,
         dots : false,
         responsive : {
             0 : {
