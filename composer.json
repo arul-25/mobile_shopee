@@ -1,0 +1,12 @@
+{
+    "name": "arulproject/mobile-shopee",
+    "description": "Belajar PHP, membuat website ecommerce",
+    "type": "project",
+    "authors": [
+        {
+            "name": "arul-25",
+            "email": "arulprojectdualima@gmail.com"
+        }
+    ],
+    "require": {}
+}
