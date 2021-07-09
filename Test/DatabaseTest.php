@@ -9,16 +9,16 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseTest extends TestCase
 {
-    public function testDatabase()
+    public function testDatabaseSuccess()
     {
-        $con = new DBController();
-        $database = $con->getConnection();
-        self::assertEquals("PDO", get_class($database));
+        $con = DBController::getConnection();
+
+        self::assertEquals("PDO", get_class($con));
     }
 
     public function testDatabaseFailed()
     {
         $this->expectException(Exception::class);
-        $con = new DBController();
+        $con = DBController::getConnection();
     }
 }
