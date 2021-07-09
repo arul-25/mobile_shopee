@@ -8,5 +8,10 @@
             "email": "arulprojectdualima@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "App\\" : "App/"
+        }
+    },
     "require": {}
 }
