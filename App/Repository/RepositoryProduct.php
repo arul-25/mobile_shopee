@@ -14,6 +14,11 @@ class RepositoryProduct
         $this->db = $db;
     }
 
+    public function __destruct()
+    {
+        $this->db = null;
+    }
+
     public function getData(): ?array
     {
         $products = [];
