@@ -8,7 +8,7 @@ class EntityProduct
     private ?string $item_brand;
     private ?string $item_name;
     private ?float $item_price;
-    private ?string $image;
+    private ?string $item_image;
     private ?string $item_register;
 
     public function __construct(array $data)
@@ -16,7 +16,7 @@ class EntityProduct
         $this->item_brand = $data['item_brand'];
         $this->item_name = $data['item_name'];
         $this->item_price = $data['item_price'];
-        $this->image = $data['image'];
+        $this->item_image = $data['item_image'];
         $this->item_register = $data['item_register'];
     }
 
@@ -93,21 +93,21 @@ class EntityProduct
     }
 
     /**
-     * Get the value of image
+     * Get the value of item_image
      */
     public function getImage(): string
     {
-        return $this->image;
+        return $this->item_image;
     }
 
     /**
-     * Set the value of image
+     * Set the value of item_image
      *
      * @return  self
      */
-    public function setImage(string $image): void
+    public function setImage(string $item_image): void
     {
-        $this->image = $image;
+        $this->item_image = $item_image;
     }
 
     /**
