@@ -22,7 +22,7 @@ class RepositoryProduct
     public function getData(): ?array
     {
         $products = [];
-        $data = $this->db->query("SELECT * FROM products");
+        $data = $this->db->query("SELECT * FROM product");
 
         foreach ($data->fetchAll(\PDO::FETCH_ASSOC) as $row) {
 
