@@ -2,6 +2,10 @@
 // require autoload composer
 require_once __DIR__ . "/vendor/autoload.php";
 
+// require function.php
+
+require_once __DIR__ . "/function.php";
+
 // include header
 include("header.php");
 

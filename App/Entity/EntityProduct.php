@@ -95,7 +95,7 @@ class EntityProduct
     /**
      * Get the value of item_image
      */
-    public function getImage(): string
+    public function getItem_image(): string
     {
         return $this->item_image;
     }
@@ -105,7 +105,7 @@ class EntityProduct
      *
      * @return  self
      */
-    public function setImage(string $item_image): void
+    public function setItem_image(string $item_image): void
     {
         $this->item_image = $item_image;
     }
