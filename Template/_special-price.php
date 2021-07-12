@@ -6,7 +6,7 @@
             <button class="btn is-checked" data-filter="*">All Brands</button>
             <button class="btn" data-filter=".Apple">Apple</button>
             <button class="btn" data-filter=".Samsung">Samsung</button>
-            <button class="btn" data-filter=".Readme">Readme</button>
+            <button class="btn" data-filter=".Redmi">Readme</button>
         </div>
 
         <div class="grid">
