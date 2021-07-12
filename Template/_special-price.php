@@ -1,12 +1,19 @@
+<?php
+$brand = array_map(function ($pro) {
+    return $pro->getItem_brand();
+}, $repositoryProduct->getData());
+$unique = array_unique($brand);
+sort($unique);
+?>
 <!-- Special Price -->
 <section id="special-price">
     <div class="container">
         <h4 class="font-rubik font-size-20">Special Price</h4>
         <div id="filters" class="button-group text-right font-baloo font-size-16">
             <button class="btn is-checked" data-filter="*">All Brands</button>
-            <button class="btn" data-filter=".Apple">Apple</button>
-            <button class="btn" data-filter=".Samsung">Samsung</button>
-            <button class="btn" data-filter=".Redmi">Readme</button>
+            <?php foreach ($unique as $row) : ?>
+                <button class="btn" data-filter=".<?= $row; ?>"><?= ucfirst($row); ?></button>
+            <?php endforeach; ?>
         </div>
 
         <div class="grid">
