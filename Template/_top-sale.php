@@ -11,7 +11,7 @@ shuffle($produck);
             <?php foreach ($produck as $row) : ?>
                 <div class="item py-2">
                     <div class="product font-rale">
-                        <a href="#"><img src="<?= $row->getItem_image(); ?>" alt="product1" class="img-fluid"></a>
+                        <a href="product.php?item_id=<?= $row->getItem_id(); ?>"><img src="<?= $row->getItem_image(); ?>" alt="product1" class="img-fluid"></a>
                         <div class="text-center">
                             <h6><?= $row->getItem_name() ?? "unknown"; ?></h6>
                             <div class="rating text-warning font-size-12">

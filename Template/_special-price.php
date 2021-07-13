@@ -22,7 +22,7 @@ shuffle($produck);
                 <div class="grid-item border <?= $item->getItem_brand() ?? "Brand"; ?>">
                     <div class="item py-2" style="width: 200px;">
                         <div class="product font-rale">
-                            <a href="#"><img src="<?= $item->getItem_image() ?? "./assets/products/13.png"; ?>" alt="product1" class="img-fluid"></a>
+                            <a href="product.php?item_id=<?= $item->getItem_id(); ?>"><img src="<?= $item->getItem_image() ?? "./assets/products/13.png"; ?>" alt="product1" class="img-fluid"></a>
                             <div class="text-center">
                                 <h6><?= $item->getItem_name() ?? "unknown"; ?></h6>
                                 <div class="rating text-warning font-size-12">
