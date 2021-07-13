@@ -4,6 +4,7 @@ $brand = array_map(function ($pro) {
 }, $repositoryProduct->getData());
 $unique = array_unique($brand);
 sort($unique);
+shuffle($produck);
 ?>
 <!-- Special Price -->
 <section id="special-price">
@@ -39,7 +40,7 @@ sort($unique);
                         </div>
                     </div>
                 </div>
-            <?php }, $repositoryProduct->getData()) ?>
+            <?php }, $produck) ?>
         </div>
     </div>
 </section>

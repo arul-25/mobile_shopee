@@ -1,3 +1,6 @@
+<?php
+shuffle($produck);
+?>
 <!-- Top Sale -->
 <section id="top-sale">
     <div class="container py-5">
@@ -5,7 +8,7 @@
         <hr>
         <!-- Owl Carousel -->
         <div class="owl-carousel owl-theme">
-            <?php foreach ($repositoryProduct->getData() as $row) : ?>
+            <?php foreach ($produck as $row) : ?>
                 <div class="item py-2">
                     <div class="product font-rale">
                         <a href="#"><img src="<?= $row->getItem_image(); ?>" alt="product1" class="img-fluid"></a>

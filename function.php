@@ -6,3 +6,5 @@ use App\Repository\RepositoryProduct;
 $db = DBController::getConnection();
 
 $repositoryProduct = new RepositoryProduct($db);
+
+$produck = $repositoryProduct->getData();
