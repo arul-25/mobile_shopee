@@ -91,4 +91,10 @@ class RepositoryCartTest extends TestCase
         $result = self::$repositoryCart->deleteCart(5);
         $this->assertNotTrue($result, "Sukses Delete");
     }
+
+    public function testGetCartId()
+    {
+        $result = self::$repositoryCart->getCartId();
+        $this->assertEmpty($result);
+    }
 }

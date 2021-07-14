@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                         <div class="col-sm-2 text-right">
                             <div class="font-size-20 text-danger font-baloo">
-                                $<span class="product_price"><?= sprintf('%.2f', $produk->getItem_price()); ?></span>
+                                $<span class="product_price" data-id="<?= $produk->getItem_id(); ?>"><?= sprintf('%.2f', $produk->getItem_price()); ?></span>
                             </div>
                         </div>
                     </div>
