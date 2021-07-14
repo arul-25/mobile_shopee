@@ -5,11 +5,12 @@ namespace App\Cart;
 use App\Database\DBController;
 use App\Entity\EntityCart;
 use App\Repository\RepositoryCart;
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 class RepositoryCartTest extends TestCase
 {
-    public function testInsertToCart()
+    public function testInsertToCartSuccess()
     {
         $cart = new EntityCart([
             "user_id" => 7,
@@ -35,5 +36,19 @@ class RepositoryCartTest extends TestCase
         $this->assertEquals($cart, $cartResult);
 
         $db = null;
+    }
+
+    public function testInsertToCartFailed()
+    {
+        $this->expectException(Exception::class);
+
+        $cart = new EntityCart([
+            "user_id" => 2,
+            "item_id" => 7
+        ]);
+
+        $repostiory = new RepositoryCart(DBController::getConnection());
+
+        $repostiory->insertIntoCart($cart);
     }
 }
