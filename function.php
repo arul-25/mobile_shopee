@@ -11,10 +11,10 @@ $repositoryProduct = new RepositoryProduct($db);
 
 $produck = $repositoryProduct->getData();
 
-// $cart = new RepositoryCart($db);
+$cart = new RepositoryCart($db);
 
 
-$arr = [
+/* $arr = [
     "user_id" => 5,
     "item_id" => 25,
 ];
@@ -23,5 +23,5 @@ $cart = new EntityCart($arr);
 $cartProperty = get_class_vars(get_class($cart));
 
 var_dump($cartProperty);
-
+ */
 // $cart->insertIntoCart($arr);

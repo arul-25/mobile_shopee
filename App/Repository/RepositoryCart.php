@@ -39,7 +39,11 @@ class RepositoryCart
             $statment->execute($values); */
 
             $statment = $this->db->prepare("INSERT INTO cart(user_id,item_id)VALUES(?,?)");
-            $statment->execute([$cart->getUser_id(), $cart->getItem_id()]);
+            $result = $statment->execute([$cart->getUser_id(), $cart->getItem_id()]);
+
+            if ($result) {
+                header("Location:" . $_SERVER['PHP_SELF']);
+            }
         }
     }
 }
