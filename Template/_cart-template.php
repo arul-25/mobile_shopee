@@ -1,5 +1,13 @@
 <?php $subTotal = 0; ?>
 <?php $sumTotal = 0; ?>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST['delete-cart-submit'])) {
+        $cart->deleteCart($_POST['cart_id']);
+    }
+}
+?>
 <!-- Shopping Cart -->
 <section id="cart" class="py-3">
     <div class="container-fluid w-75">
@@ -41,7 +49,10 @@
                                     <input type="text" data-id="<?= $produk->getItem_id(); ?>" class="qty_input border px-2 w-100 bg-light text-center" disabled value="1" placeholder="1">
                                     <button class="qty-down border bg-light" data-id="<?= $produk->getItem_id(); ?>"><i class="fas fa-angle-down"></i></button>
                                 </div>
-                                <button type="submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
+                                <form action="" method="post">
+                                    <input type="hidden" value="<?= $row->getCart_id(); ?>" name="cart_id">
+                                    <button type="submit" name="delete-cart-submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
+                                </form>
                                 <button type="submit" class="btn font-baloo text-danger px-3 border-right">Save for later</button>
                             </div>
                             <!-- End Product Qty -->

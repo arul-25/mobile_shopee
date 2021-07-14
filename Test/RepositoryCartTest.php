@@ -79,4 +79,16 @@ class RepositoryCartTest extends TestCase
         self::assertNotEmpty($carts);
         self::assertEquals($carts, $resultcarts);
     }
+
+    public function testDeleteCartSuccess()
+    {
+        $result = self::$repositoryCart->deleteCart(5);
+        $this->assertTrue($result, "Gagal Delete");
+    }
+
+    public function testDeleteCartFailed()
+    {
+        $result = self::$repositoryCart->deleteCart(5);
+        $this->assertNotTrue($result, "Sukses Delete");
+    }
 }

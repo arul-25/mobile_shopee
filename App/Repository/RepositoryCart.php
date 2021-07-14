@@ -61,4 +61,13 @@ class RepositoryCart
 
         return $carts;
     }
+
+    public function deleteCart($cart_id = null): bool
+    {
+        if ($cart_id != null) {
+            $result = $this->db->exec("DELETE FROM cart WHERE cart_id = $cart_id");
+            if ($result) return true;
+            return false;
+        }
+    }
 }
