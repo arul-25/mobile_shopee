@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         </div>
 
         <div class="grid">
-            <?php array_map(function ($item) { ?>
+            <?php array_map(function ($item) use ($cart_id) { ?>
                 <div class="grid-item border <?= $item->getItem_brand() ?? "Brand"; ?>">
                     <div class="item py-2" style="width: 200px;">
                         <div class="product font-rale">
@@ -51,7 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <form action="" method="POST">
                                     <input type="hidden" name="item_id" value="<?= $item->getItem_id() ?? "1"; ?>">
                                     <input type="hidden" name="user_id" value="<?= 1; ?>">
-                                    <button type="submit" name="special_price_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                    <?php if (in_array($item->getItem_id(), $cart_id)) : ?>
+                                        <button type="submit" disabled class="btn btn-success font-size-12">In The Cart</button>
+                                    <?php else : ?>
+                                        <button type="submit" name="special_price_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                    <?php endif; ?>
                                 </form>
                             </div>
                         </div>

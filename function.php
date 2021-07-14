@@ -13,6 +13,8 @@ $produck = $repositoryProduct->getData();
 
 $cart = new RepositoryCart($db);
 
+$cart_id = $cart->getCartId();
+
 
 /* $arr = [
     "user_id" => 5,

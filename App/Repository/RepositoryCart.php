@@ -70,4 +70,14 @@ class RepositoryCart
             return false;
         }
     }
+
+    public function getCartId(): ?array
+    {
+        $cart = $this->getData();
+        $data = [];
+        foreach ($cart as $row) {
+            $data[] = $row->getItem_id();
+        }
+        return $data;
+    }
 }

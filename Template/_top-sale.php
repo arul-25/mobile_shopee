@@ -40,7 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <form action="" method="POST">
                                 <input type="hidden" name="item_id" value="<?= $row->getItem_id() ?? "1"; ?>">
                                 <input type="hidden" name="user_id" value="<?= 1; ?>">
-                                <button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                <?php if (in_array($row->getItem_id(), $cart_id)) : ?>
+                                    <button type="submit" disabled class="btn btn-success font-size-12">In The Cart</button>
+                                <?php else : ?>
+                                    <button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                <?php endif; ?>
+
                             </form>
                         </div>
                     </div>
