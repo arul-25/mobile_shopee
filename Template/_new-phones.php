@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <form action="" method="POST">
                                 <input type="hidden" name="item_id" value="<?= $row->getItem_id() ?? "1"; ?>">
                                 <input type="hidden" name="user_id" value="<?= 1; ?>">
-                                <button type="submit" name="nwe_phones_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                <button type="submit" name="new_phones_submit" class="btn btn-warning font-size-12">Add to Cart</button>
                             </form>
                         </div>
                     </div>
