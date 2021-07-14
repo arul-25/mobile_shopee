@@ -14,6 +14,8 @@ include("header.php");
 /* Cart Template */
 include("Template/_cart-template.php");
 
+/* Whislist Template */
+include("Template/_whislist_template.php");
 
 /* Top Sale */
 include("Template/_new-phones.php");
