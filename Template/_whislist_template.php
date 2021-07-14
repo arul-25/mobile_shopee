@@ -3,8 +3,12 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    if (isset($_POST['delete-cart-submit'])) {
-        $cart->deleteCart($_POST['cart_id']);
+    if (isset($_POST['delete-wishlist-submit'])) {
+        $wishlist->deleteWishlist($_POST['item_id']);
+    }
+
+    if (isset($_POST['wishlist-submit'])) {
+        $wishlist->addToCart($_POST['item_id']);
     }
 }
 ?>
@@ -16,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <!-- Shopping Cart items -->
         <div class="row">
             <div class="col-sm-9">
-                <?php foreach ($cart->getData() as $row) : ?>
+                <?php foreach ($wishlist->getData() as $row) : ?>
                     <?php $produk = $repositoryProduct->getDataBy(["item_id" => $row->getItem_id()]); ?>
 
                     <?php $sumTotal += floatval($produk->getItem_price()); ?>
@@ -45,10 +49,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <!-- Product Qty -->
                             <div class="qty d-flex pt-2">
                                 <form action="" method="post">
-                                    <input type="hidden" value="<?= $row->getCart_id(); ?>" name="cart_id">
-                                    <button type="submit" name="delete-cart-submit" class="btn font-baloo text-danger pl-0 pr-3 border-right">Delete</button>
+                                    <input type="hidden" value="<?= $row->getItem_id(); ?>" name="item_id">
+                                    <button type="submit" name="delete-wishlist-submit" class="btn font-baloo text-danger pl-0 pr-3 border-right">Delete</button>
                                 </form>
-                                <button type="submit" class="btn font-baloo text-danger px-3 border-right">Add to Cart</button>
+                                <form action="" method="POST">
+                                    <input type="hidden" value="<?= $row->getItem_id(); ?>" name="item_id">
+                                    <button type="submit" name="wishlist-submit" class="btn font-baloo text-danger px-3 border-right">Add to Cart</button>
+                                </form>
                             </div>
                             <!-- End Product Qty -->
                         </div>

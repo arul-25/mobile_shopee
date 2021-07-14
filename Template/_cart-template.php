@@ -6,6 +6,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['delete-cart-submit'])) {
         $cart->deleteCart($_POST['cart_id']);
     }
+
+    if (isset($_POST['save-later-submit'])) {
+        $cart->saveForLater($_POST['item_id']);
+    }
 }
 ?>
 <!-- Shopping Cart -->
@@ -53,7 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     <input type="hidden" value="<?= $row->getCart_id(); ?>" name="cart_id">
                                     <button type="submit" name="delete-cart-submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
                                 </form>
-                                <button type="submit" class="btn font-baloo text-danger px-3 border-right">Save for later</button>
+                                <form action="" method="POST">
+                                    <input type="hidden" value="<?= $row->getItem_id(); ?>" name="item_id">
+                                    <button type="submit" name="save-later-submit" class="btn font-baloo text-danger px-3 border-right">Save For Later</button>
+                                </form>
                             </div>
                             <!-- End Product Qty -->
                         </div>

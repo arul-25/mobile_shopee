@@ -4,6 +4,7 @@ use App\Database\DBController;
 use App\Entity\EntityCart;
 use App\Repository\RepositoryCart;
 use App\Repository\RepositoryProduct;
+use App\Repository\RepositoryWishlist;
 
 $db = DBController::getConnection();
 
@@ -14,6 +15,8 @@ $produck = $repositoryProduct->getData();
 $cart = new RepositoryCart($db);
 
 $cart_id = $cart->getCartId();
+
+$wishlist = new RepositoryWishlist($db);
 
 
 /* $arr = [

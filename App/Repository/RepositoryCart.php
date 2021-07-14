@@ -80,4 +80,20 @@ class RepositoryCart
         }
         return $data;
     }
+
+    public function saveForLater($item_id = null)
+    {
+        if ($item_id != null) {
+            $query = "INSERT INTO wishlist SELECT * FROM cart WHERE item_id = $item_id; ";
+            $query .= "DELETE FROM cart WHERE item_id = $item_id;";
+
+            $result = $this->db->exec($query);
+
+            if ($result) {
+                header("Location:" . $_SERVER['PHP_SELF']);
+            }
+
+            return $result;
+        }
+    }
 }
