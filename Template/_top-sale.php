@@ -5,11 +5,13 @@ use App\Entity\EntityCart;
 shuffle($produck);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $cartEntity = new EntityCart([
-        "user_id" => $_POST['user_id'],
-        "item_id" => $_POST['item_id']
-    ]);
-    $cart->insertIntoCart($cartEntity);
+    if (isset($_POST['top_sale_submit'])) {
+        $cartEntity = new EntityCart([
+            "user_id" => $_POST['user_id'],
+            "item_id" => $_POST['item_id']
+        ]);
+        $cart->insertIntoCart($cartEntity);
+    }
 }
 ?>
 <!-- Top Sale -->

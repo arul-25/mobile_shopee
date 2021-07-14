@@ -6,6 +6,8 @@ require_once __DIR__ . "/vendor/autoload.php";
 
 require_once __DIR__ . "/function.php";
 
+ob_start();
+
 // include header
 include("header.php");
 

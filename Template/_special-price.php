@@ -1,10 +1,23 @@
 <?php
+
+use App\Entity\EntityCart;
+
 $brand = array_map(function ($pro) {
     return $pro->getItem_brand();
 }, $repositoryProduct->getData());
 $unique = array_unique($brand);
 sort($unique);
 shuffle($produck);
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST['special_price_submit'])) {
+        $cartEntity = new EntityCart([
+            "user_id" => $_POST['user_id'],
+            "item_id" => $_POST['item_id']
+        ]);
+        $cart->insertIntoCart($cartEntity);
+    }
+}
 ?>
 <!-- Special Price -->
 <section id="special-price">
@@ -35,7 +48,11 @@ shuffle($produck);
                                 <div class="price py-2">
                                     <span>$<?= $item->getItem_price() ?? "0"; ?></span>
                                 </div>
-                                <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="item_id" value="<?= $item->getItem_id() ?? "1"; ?>">
+                                    <input type="hidden" name="user_id" value="<?= 1; ?>">
+                                    <button type="submit" name="special_price_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,17 @@
 <?php
+
+use App\Entity\EntityCart;
+
 shuffle($produck);
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST['new_phones_submit'])) {
+        $cartEntity = new EntityCart([
+            "user_id" => $_POST['user_id'],
+            "item_id" => $_POST['item_id']
+        ]);
+        $cart->insertIntoCart($cartEntity);
+    }
+}
 ?>
 
 <!-- New Phones -->
@@ -25,7 +37,11 @@ shuffle($produck);
                             <div class="price py-2">
                                 <span><?= $row->getItem_price() ?? "0"; ?></span>
                             </div>
-                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                            <form action="" method="POST">
+                                <input type="hidden" name="item_id" value="<?= $row->getItem_id() ?? "1"; ?>">
+                                <input type="hidden" name="user_id" value="<?= 1; ?>">
+                                <button type="submit" name="nwe_phones_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>
