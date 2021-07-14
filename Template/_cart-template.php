@@ -7,14 +7,15 @@
         <div class="row">
             <div class="col-sm-9">
                 <?php foreach ($cart->getData() as $row) : ?>
+                    <?php $produk = $repositoryProduct->getDataBy(["item_id" => $row->getItem_id()]); ?>
                     <!-- Cart Item -->
                     <div class="row border-top py-2 mt-3">
                         <div class="col-sm-2">
-                            <img src="./assets//products/1.png" alt="Cart1" class="img-fluid" style="height: 120px;">
+                            <img src="<?= $produk->getItem_image(); ?>" alt="<?= $produk->getItem_name(); ?>" class="img-fluid" style="height: 120px;">
                         </div>
                         <div class="col-sm-8">
-                            <h5 class="font-baloo font-size-20">Samsung Galaxy 10</h5>
-                            <small>by Samsung</small>
+                            <h5 class="font-baloo font-size-20"><?= $produk->getItem_name(); ?></h5>
+                            <small><?= $produk->getItem_brand(); ?></small>
                             <!-- Product Rating -->
                             <div class="d-flex">
                                 <div class="rating text-warning font-size-12">
@@ -31,9 +32,9 @@
                             <!-- Product Qty -->
                             <div class="qty d-flex pt-2">
                                 <div class="d-flex font-rale w-25">
-                                    <button class="qty-up border bg-light" data-id="pro1"><i class="fas fa-angle-up"></i></button>
-                                    <input type="text" data-id="pro1" class="qty_input border px-2 w-100 bg-light text-center" disabled value="1" placeholder="1">
-                                    <button class="qty-down border bg-light" data-id="pro1"><i class="fas fa-angle-down"></i></button>
+                                    <button class="qty-up border bg-light" data-id="<?= $produk->getItem_id(); ?>"><i class="fas fa-angle-up"></i></button>
+                                    <input type="text" data-id="<?= $produk->getItem_id(); ?>" class="qty_input border px-2 w-100 bg-light text-center" disabled value="1" placeholder="1">
+                                    <button class="qty-down border bg-light" data-id="<?= $produk->getItem_id(); ?>"><i class="fas fa-angle-down"></i></button>
                                 </div>
                                 <button type="submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
                                 <button type="submit" class="btn font-baloo text-danger px-3 border-right">Save for later</button>
@@ -43,7 +44,7 @@
 
                         <div class="col-sm-2 text-right">
                             <div class="font-size-20 text-danger font-baloo">
-                                $<span class="product_price">152</span>
+                                $<span class="product_price"><?= $produk->getItem_price(); ?></span>
                             </div>
                         </div>
                     </div>
