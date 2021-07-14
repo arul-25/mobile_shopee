@@ -23,10 +23,10 @@ class RepositoryProductTest extends TestCase
 
     public function testGetDataSuccess()
     {
-        $products = self::$repositoryProduct->getData();
+        $products = self::$repositoryProduct->getData(["item_id" => 2]);
 
         $db = DBController::getConnection();
-        $queryProduct = $db->query("SELECT * FROM product");
+        $queryProduct = $db->query("SELECT * FROM product WHERE item_id = 2");
 
         $resultProducts = [];
         foreach ($queryProduct->fetchAll(\PDO::FETCH_ASSOC) as $row) {
@@ -43,5 +43,21 @@ class RepositoryProductTest extends TestCase
     {
         $this->expectException(Exception::class);
         $products = self::$repositoryProduct->getData();
+    }
+
+    public function testGetDataBySuccess()
+    {
+        $products = self::$repositoryProduct->getDataBy(["item_id" => 2]);
+
+        $db = DBController::getConnection();
+        $stment = $db->query("SELECT * FROM product WHERE item_id = 2");
+        $resultProducts = $stment->fetch(\PDO::FETCH_ASSOC);
+
+        $prodcut = new EntityProduct($resultProducts);
+        $prodcut->setItem_id($resultProducts['item_id']);
+
+        $this->assertEquals($prodcut, $products);
+
+        $db = null;
     }
 }
