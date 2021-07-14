@@ -10,6 +10,15 @@ use PHPUnit\Framework\TestCase;
 
 class RepositoryCartTest extends TestCase
 {
+    private static \PDO $db;
+    private static RepositoryCart $repositoryCart;
+
+    public static function setUpBeforeClass(): void
+    {
+        self::$db = DBController::getConnection();
+        self::$repositoryCart = new RepositoryCart(self::$db);
+    }
+
     public function testInsertToCartSuccess()
     {
         $cart = new EntityCart([
@@ -50,5 +59,24 @@ class RepositoryCartTest extends TestCase
         $repostiory = new RepositoryCart(DBController::getConnection());
 
         $repostiory->insertIntoCart($cart);
+    }
+
+    public function testGetDataSuccess()
+    {
+        $carts = self::$repositoryCart->getData();
+
+        $db = DBController::getConnection();
+        $queryCart = $db->query("SELECT * FROM cart");
+
+        $resultcarts = [];
+        foreach ($queryCart->fetchAll(\PDO::FETCH_ASSOC) as $row) {
+            $cart = new EntityCart($row);
+            $cart->setCart_id($row['cart_id']);
+            $resultcarts[] = $cart;
+        }
+
+        self::assertNotNull($carts);
+        self::assertNotEmpty($carts);
+        self::assertEquals($carts, $resultcarts);
     }
 }
