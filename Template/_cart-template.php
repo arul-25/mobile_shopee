@@ -6,86 +6,49 @@
         <!-- Shopping Cart items -->
         <div class="row">
             <div class="col-sm-9">
-                <!-- Cart Item -->
-                <div class="row border-top py-2 mt-3">
-                    <div class="col-sm-2">
-                        <img src="./assets//products/1.png" alt="Cart1" class="img-fluid" style="height: 120px;">
-                    </div>
-                    <div class="col-sm-8">
-                        <h5 class="font-baloo font-size-20">Samsung Galaxy 10</h5>
-                        <small>by Samsung</small>
-                        <!-- Product Rating -->
-                        <div class="d-flex">
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
+                <?php foreach ($cart->getData() as $row) : ?>
+                    <!-- Cart Item -->
+                    <div class="row border-top py-2 mt-3">
+                        <div class="col-sm-2">
+                            <img src="./assets//products/1.png" alt="Cart1" class="img-fluid" style="height: 120px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <h5 class="font-baloo font-size-20">Samsung Galaxy 10</h5>
+                            <small>by Samsung</small>
+                            <!-- Product Rating -->
+                            <div class="d-flex">
+                                <div class="rating text-warning font-size-12">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="far fa-star"></i></span>
+                                </div>
+                                <a href="#" class="px-2 font-rale font-size-14">20,534 ratings</a>
                             </div>
-                            <a href="#" class="px-2 font-rale font-size-14">20,534 ratings</a>
-                        </div>
-                        <!-- End Product Rating -->
+                            <!-- End Product Rating -->
 
-                        <!-- Product Qty -->
-                        <div class="qty d-flex pt-2">
-                            <div class="d-flex font-rale w-25">
-                                <button class="qty-up border bg-light" data-id="pro1"><i class="fas fa-angle-up"></i></button>
-                                <input type="text" data-id="pro1" class="qty_input border px-2 w-100 bg-light text-center" disabled value="1" placeholder="1">
-                                <button class="qty-down border bg-light" data-id="pro1"><i class="fas fa-angle-down"></i></button>
+                            <!-- Product Qty -->
+                            <div class="qty d-flex pt-2">
+                                <div class="d-flex font-rale w-25">
+                                    <button class="qty-up border bg-light" data-id="pro1"><i class="fas fa-angle-up"></i></button>
+                                    <input type="text" data-id="pro1" class="qty_input border px-2 w-100 bg-light text-center" disabled value="1" placeholder="1">
+                                    <button class="qty-down border bg-light" data-id="pro1"><i class="fas fa-angle-down"></i></button>
+                                </div>
+                                <button type="submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
+                                <button type="submit" class="btn font-baloo text-danger px-3 border-right">Save for later</button>
                             </div>
-                            <button type="submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
-                            <button type="submit" class="btn font-baloo text-danger px-3 border-right">Save for later</button>
+                            <!-- End Product Qty -->
                         </div>
-                        <!-- End Product Qty -->
-                    </div>
 
-                    <div class="col-sm-2 text-right">
-                        <div class="font-size-20 text-danger font-baloo">
-                            $<span class="product_price">152</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row border-top py-2 mt-3">
-                    <div class="col-sm-2">
-                        <img src="./assets//products/2.png" alt="Cart1" class="img-fluid" style="height: 120px;">
-                    </div>
-                    <div class="col-sm-8">
-                        <h5 class="font-baloo font-size-20">Samsung Galaxy 10</h5>
-                        <small>by Samsung</small>
-                        <!-- Product Rating -->
-                        <div class="d-flex">
-                            <div class="rating text-warning font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
+                        <div class="col-sm-2 text-right">
+                            <div class="font-size-20 text-danger font-baloo">
+                                $<span class="product_price">152</span>
                             </div>
-                            <a href="#" class="px-2 font-rale font-size-14">20,534 ratings</a>
-                        </div>
-                        <!-- End Product Rating -->
-
-                        <!-- Product Qty -->
-                        <div class="qty d-flex pt-2">
-                            <div class="d-flex font-rale w-25">
-                                <button class="qty-up border bg-light" data-id="pro2"><i class="fas fa-angle-up"></i></button>
-                                <input type="text" data-id="pro2" class="qty_input border px-2 w-100 bg-light text-center" disabled value="1" placeholder="1">
-                                <button data-id="pro2" class="qty-down border bg-light"><i class="fas fa-angle-down"></i></button>
-                            </div>
-                            <button type="submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
-                            <button type="submit" class="btn font-baloo text-danger px-3 border-right">Save for later</button>
-                        </div>
-                        <!-- End Product Qty -->
-                    </div>
-
-                    <div class="col-sm-2 text-right">
-                        <div class="font-size-20 text-danger font-baloo">
-                            $<span class="product_price">152</span>
                         </div>
                     </div>
-                </div>
-                <!-- End Cart Item -->
+                    <!-- End Cart Item -->
+                <?php endforeach; ?>
             </div>
             <!-- Sub total -->
             <div class="col-sm-3">

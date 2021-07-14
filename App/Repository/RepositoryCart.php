@@ -46,4 +46,19 @@ class RepositoryCart
             }
         }
     }
+
+    public function getData(): ?array
+    {
+        $carts = [];
+        $data = $this->db->query("SELECT * FROM cart");
+
+        foreach ($data->fetchAll(\PDO::FETCH_ASSOC) as $row) {
+
+            $cart = new EntityCart($row);
+            $cart->setCart_id($row['cart_id']);
+            $carts[] = $cart;
+        }
+
+        return $carts;
+    }
 }
