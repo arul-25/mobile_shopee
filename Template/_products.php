@@ -14,7 +14,11 @@ foreach ($produck as $item) :
                                 <button type="submit" class="btn btn-danger form-control">Procced to Buy</button>
                             </div>
                             <div class="col">
-                                <button type="submit" class="btn btn-warning form-control">Add to Cart</button>
+                                <?php if (in_array($item->getItem_id(), $cart_id)) : ?>
+                                    <button type="submit" disabled class="btn btn-success form-control font-size-16">In The Cart</button>
+                                <?php else : ?>
+                                    <button type="submit" name="top_sale_submit" class="btn btn-warning font-size-16 form-control">Add to Cart</button>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
