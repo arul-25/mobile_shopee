@@ -11,11 +11,12 @@ ob_start();
 /* Header */
 include("header.php");
 
-/* Cart Template */
-include("Template/_cart-template.php");
+/* Include Cart Item if is not empty */
+count($cart->getData()) ? include("Template/_cart-template.php") : include("Template/NotFound/_cart_not_found.php");
 
 /* Whislist Template */
-include("Template/_whislist_template.php");
+count($wishlist->getData()) ? include("Template/_whislist_template.php") : include("Template/NotFound/_wishlist_not_found.php");
+
 
 /* Top Sale */
 include("Template/_new-phones.php");
